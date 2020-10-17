@@ -1,0 +1,306 @@
+
+26. June 2020:
+\begin{itemize}
+	\item Track pers\_rel\_acq for female bankers that switch away from lawsuit banks to identify the effect on the deal volume better 
+\end{itemize}
+
+Call Steven 22.June 2020
+\begin{itemize}
+	\item Try graph again: 5 years only. Do not remove clients and bankers ever? Keep numerator stable?
+
+	\item  How is the set of firms of bankers defined? \\  What are “active” relationships? Currently: infinite. \\ Compare clients last five years, and follow for 5 years post
+
+	\item Table 8: 	Move placebo from column1 to the very end clearly label as placebo
+
+	\item Table 9/10: consolidate into one table, use only most complete spec, one col each
+
+	\item add table on performance female in friendly/unfriendly banks
+	\item link specifically moving from unfriendly -> friendly 
+	\item add transition matrix !
+
+	\item salary table (11): salary reported SEC, salary+option at fair value
+	\item Push: bonus has two components: firms side and individual. Observing the board allows us to observe the firm wide component, which is not related to individual performance! So this result is exogenous!
+
+
+	\item to classify ranks: for each bank, count frequencies and assign hierarchy based on frequency rank!
+
+	\item Potentially add FE for descending bank region FE
+
+\item create summary stat within Firm-Bank pairs, within Bank-year etc etc and show level of variation that is left
+
+
+\item Big Picture: Many dimensions, give “road map” on how these many dimensions are linked etc
+\item Make sure to have clear separation between robustness and main
+\end{itemize}
+
+Next To dos:
+
+\begin{enumerate}
+	\item Tables and tests
+	
+	\begin{enumerate}
+		\item sample split/interaction: who follows based on relationship strength (\# interactions)
+		\item robustness test: only consider instances where the same banker signs in new loans? (at least try it, it is actually really tough on the data)
+		\item re-visit salary idea (payment of executive team goes down etc). (likely we have tried this a lot and I just forgot - sorry if so)
+		\item Bank-year level: reg total deal volume on number bankers hired t-1?
+		\item [Not clear how to account for post period] collapse banker bank: to address serial correlation, keep only one observation per banker and bank. then run switching regression. [DONE] For personal\_rel\_Acquired regressions: two observation per bank and borrower: one before acquiring banker, one after. 
+		\item [DONE Interactions - nothing there in deal volume regs] sample split opacity (no rating, junk rating, high intangibles, small size) in tables on initiation and deal volume (maybe initiation only)? maybe two colums for each measure: one initiation, one deal volume. ). Maybe also profitability and credit rating quality?
+		\item [Sort of done - check if ok] what \% of portfolio follows test: use banker-bank-panel. create variable \% of portfolio switched, track over time. 
+		\item [DONE] robustness: estimate initiation tests with bank-industry-year FE (can we go that far or data not rich enough? try two digit sic codes or fama french 10). Also try bank-hq state-year FE for geographic expansion
+		
+	\end{enumerate}
+	
+	\item add more clear null hypotheses (are we expecting bankers not to matter? Is there a theory paper on relationships we could cite?)
+	\item Link better first and second part (will happen naturally once we hav enon-compete cluases)
+	
+	
+\end{enumerate}
+
+
+
+Comments Gerzensee
+\begin{enumerate}
+	\item Explain what the coefficient in the banker hired regressions means - p\% p.a., show how many bankers switch on a yr-by-yr figure \textcolor{blue}{CH: see above}
+	\item Discuss null hypotheses [are the findings surprising?] \textcolor{blue}{CH: TBD}
+	\item Anecdotal evidence of why \emph{bankers} are switching. Probably is about compensation (in practice \% of deal volume that they bring to the bank) \textcolor{blue}{CH: TBD. Not sure if this helps us since will point towards payment}
+	\item Do they rise faster in the rank after they switch? \textcolor{blue}{CH: we had thought of that but ranks not comparable. Somehow Gao Kleiner Pacelli used this I think, not sure how they do it. should maybe go on lower priority list}
+	\item Do they succeed to grow their portfolio more after they switch? One reason they switch might be to grow their business [reg portfolio\_size = switch + tenure + FEs] \textcolor{blue}{CH: Interesting test, feels a little tangential to our main question but might be an easy appendix table?}
+	\item More information about the bank that employs them: Why does the banker get hired? Does the bank diversify its portfolio in terms of industry/geography exposure? \textcolor{blue}{CH: bank-industry-year FE would capture industry specific growth strategy by bank. maybe bank-hq-state-year would do similarly for geo?} MC - I guess the idea is not to control for it but to check if this is happening, hence maybe add a measure of bankers' portfolio industry exposure or the like?
+	\item What's the effect to the portfolio borrowers that do not switch? Is there the case that they get worse rates at the old bank? [should be tackle this? Is there sthg we can say beyond Christoph's JMP?]  \textcolor{blue}{CH: We might mention that they get worse rates bc they lose relationship. hard to disentangle fully from selection issue, and if we show selection results that's good)}
+	\item What are the consequences for the banker? [not sure what she meant by that exactly] \textcolor{blue}{CH: I think in line with promotion idea?}
+	\item Minor: Rel\_acq 3yrs instead of 5yrs. \textcolor{blue}{CH: I'd skip for now very minor}
+	\item Lopez-Espinoza et al 2016 - when do relationships pay off? After 2yrs? Is sthg like ``milking the cow'' going on with the banker-client relationships? Is it more likely that ``fresh clients'' with a lot of deal potential switch/make it more likely that the banker switches? \textcolor{blue}{CH: not aware of that paper so no direct idea what's actionable } MC: I guess we can go with what you mentioned before - clients' relationship strength, e.g. fresh clients (small no of deals) are more valuable/likely to come over. 
+	\item Labor market frictions use non-compete laws \textcolor{blue}{CH: yep}
+	\item Stress out contribution in terms of the banks that hire the bankers \textcolor{blue}{CH: spin: on bank year level increase in deal volume?}
+	\item Greenwood: Stress the informational component what makes clients more dependent on the banks as opposed to the bankers?
+	\item Find no observations where you have firm-old\_banker-old\_bank vs. firm-new\_banker-new\_bank 
+	\item Why should women start worming in a bad environment in the first place? \textcolor{blue}{CH: might be nice to mention in text. 1st: time series variation in lawsuits. 2nd: not obvious from outside. 3. very competitive market might have little other choice}
+	\item Miss connection between first and second part \textcolor{blue}{CH: tbd}
+	\item Steven: to add handicapped ppl (discrimination) as an additional friction  \textcolor{blue}{CH: nice but might be hard to get data for our bankers?}
+	\item Steven: Bank fraud as an additional avenue, op. losses due to fraud at a bank level or lawsuits against the bank in general \textcolor{blue}{CH: I don't dislike the angle of personal ethics or that bankers get away with bad behavior if they are rain makers, but not clear where data would come from (unlike for financial advisors..)} MC: We could use the data of financial advisers as a proxy for bankers - i.e., if fin advisers get away with it, chances are that bankers would also. [We have the data, it's only a question of matching it I think]
+
+\end{enumerate}
+
+
+Marco: 
+\begin{enumerate}
+	\item Split Tab 9 - Initiation interaction with female by banks with gender lawsuits and those without gender lawsuits >> are female bankers more ``efficient'' in a relatively good environment? 
+	\item cite Zingales 2000 JF one of the aspects of modern firms is that ``human capital as central element in firms''
+	\item Connect to labor mobility literature:
+	\begin{itemize}
+		\item Jeffers 2019, 
+		\item [From: Bai, Fairhurst, Serfling, RFS 2020] Empirical work, however, does not find a consistent relation between employment protection and capital expenditures (Autor, Kerr, and Kugler 2007; Calcagnini, Giombini, and Saltari 2009; Calcagnini, Ferrando, and Giombini 2014). Moreover, even if greater employment protection lowers capital expenditures, prior work finds that it leads to more innovation (Acharya, Baghai, and Subramanian 2014; Griffith and Macartney 2014). 
+	\end{itemize}	
+	\item Connections and performance in bankers’ turnover (battistin, graziano, pargi, eer 2012) show that personal connections at the top management of banks can be detrimental to bank performance (collusion devices)
+	\item Is Glassdoor data downloadable? We probably want to show what the impact of turnover is on salary (forced turnover?)
+\end{enumerate}
+
+To Do:
+
+
+
+\begin{enumerate}
+	\item Think about adding lawsuit data:
+		\begin{itemize}
+			\item Sources: use google scholar case lawsuits. E.g. "v Citigroup" "Title VII"  yields 345 results, v. Goldman: 360, v. Morgan Stanley: 948
+			\item could create year by year breakdown by searching year by year (can even create the links automatically to speed up more. scraping isn't feasible in my experience)
+			\item can also get total number lawsuits
+		\end{itemize}
+	
+	\item Think about additional things to do with existing lawsuit analysis
+	\begin{itemize}
+		\item take lawsuit gender/no. all lawsuits?
+		\item check the timing dynamics
+		\item keep in mind alternatives: lexis, bloomberg BNA
+	\end{itemize}
+
+
+	\item pitch: put at center interaction labor market frictions and capital markets
+	\item use gender and non compete clauses as two such frictions and show spillovers as a resultm Maybe also political alignment?
+	\item link gender and bankers moving more directly: use gender lawsuits in first stage as instrument for bankers leaving a bank, second stage: create bank-year panel with total number clients and total deal volume and show in IV that deal volume and client number goes down? More direct evidence then currently
+	\item maybe make bigger picture point with labor market frictions: show that non-compete clauses/higher frictions are associated with less movement in bank-borrower pairings, i.e. 
+	\item create appendix with anecdotal evidence 	DONE
+	
+	\item Restructure tables - some initial ideas (let's talk through with steven post-Gerzensee before actioning on it)
+	\begin{itemize}
+		\item Move Table 3 Panel B into apendix
+		\item Table 4, 5, 6, 7, 9 : move separate definitions of acquisition into appendix
+		\item Tables 4 Panel B: let's reestimate and check why number obs and R square look different ?
+		\item Table 6 Panel C: move to appendix, maybe make one table with SEO and M\&A
+		\item Move table 7 into Appendix
+		\item Move table 10 into Appendix	maybe?
+\end{itemize}
+	
+\end{enumerate}
+
+Potential sources for female friendliness of banks:
+
+		\begin{itemize}
+			\item alternative Thompson: \url{http://business.library.emory.edu/research-learning/databases/thomson-checkpoint.php}
+			\item there's a 1994 law that tries to get banks to disclose how much they lend to women \url{https://www.congress.gov/bill/104th-congress/house-bill/3826?s=1&r=5}
+			\item commitment to report loans to women renewed in dodd frank:
+			``Section 1071 of the Dodd-Frank Act (section 1071) amends ECOA to require financial institutions to report information concerning credit applications made by women-owned, minority-owned, and small businesses.''
+			\url{https://files.consumerfinance.gov/f/documents/201705_cfpb_RFI_Small-Business-Lending-Market.pdf}
+			\item apparently the dodd frank implementation was delayed but is coming! might be another paper? Use our measure of female friendliness and see if it predicts who lends how much to women?\url{https://www.financialservicesperspectives.com/2020/01/ready-or-not-section-1071-is-coming/}
+			\item motivate with gender angle
+		\end{itemize}
+
+Misc:
+		\begin{itemize}
+%				\item BNP Paribas. Also has data on gender pay gap being biggest in finance.
+%				\url{https://www.ft.com/content/84cf64e4-d89e-11e9-8f9b-77216ebe1f17}
+				
+%				\item UK report on gender in bnaking
+%				\url{https://www.parliament.uk/business/committees/committees-a-z/commons-select/treasury-committee/news-parliament-2017/women-in-finance-report-published-17-19/}
+				
+				\item us wants to force more diversity in banking
+				\url{https://www.americanbanker.com/news/house-lawmakers-at-odds-over-requiring-banks-to-report-diversity-data}
+				“The staff report found that only 29\% of banks' senior and executive level positions are held by women. Racial and ethnic minorities represented only 19\% of the senior- and executive-level workforce at banks.”
+				
+				\item  Report: Table 2 has share of senior executives that are female! Can use as measure for how progressive? Table 3 board members. Table 5 data pay equity
+				\url{https://financialservices.house.gov/issues/diversity-and-inclusion-holding-america-s-large-banks-accountable.htm}
+				
+				\item Non compete: cite Kaplan Stroemberg \url{https://watermark.silverchair.com/70-2-281.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAoowggKGBgkqhkiG9w0BBwagggJ3MIICcwIBADCCAmwGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMZ54awR7Y0anZy5mZAgEQgIICPWIhqSfPcxDKjFieLPZE1b8OY6SreX55cwDNzJWukQ18cP4t_d7W7w8_FPOFhPy6ywZBVv1Ys5kD7U4OPHBhYSRSHQ6Fc1l6ukYRd8qn5bzKknFBKarCwGicqlxDdBdKrJaZhKZEbRliyAJrZBgicyKtePveLEHrnxNvCZ--YAnmyVy3dxcD6GqE3z5UQ1EGiag7T7MRotHcMitTSNKPOW5mIErnAMds8wXiQxnS5C85qO92GhSjrKkHzbqRLHyJASPp5Fl3XKTyp5SXqKvIbhgKK4kce7jp-C9gPp0Lp1L6dhx0Ew4CcQirujv-k8d9BBQ0E5rVWkrkF1qUlnL0i7-JzDx3rIKGHiANNHSpziQuw7QdgATpjgiDs9OA7dSqVv_QyBReE4PPBGJfV0l5pqEkefPFIC1rD_N_Zdq2HGmm9R6jLhvP6KC9QqIVqysPr4oJFnBevjCHW33uQ4AQXv4Mlyqg0D2Ti-2RwEc7EPEPf_cD0Hjq5wzhgHGFxWWExJIScNmXAAJoRHoII6f8gnKrI691JwGJpgbSS7gI_pzOhEhNwp3avQ9d3JZlt29aK5txX66sGl-AVQ2I6jggmAp5VhUR3LLiClg2yJei8eo2lJAOziEFN-HVacww_knKWGCCCeBG7KUnVSMiRojM8IDNFUl9nmtTqAnSogOTh448Yd21DN147OvtBjXheTI2S0BUPo5Jex738EI0w7aY1fHXAb-yNa7NIuH5x64bw_KgFdGMHsXjxRYv-F74sg} who show 70\% of founders in VC contracts have non competes. USe rankings from JLEO paper which seem consistent with reading. 
+				
+				%To Do
+				%Look into political alignment bank borrower banker . use data on bank and firm political allignment from existing paper in data folder. find info on registered republican/democrat?
+				%add unconditional averages for sample below table use code gonzalo paper
+				%add citations from theory and empirics 
+				%create measure of how much banks compete with each other, show it is competing banks that poach lender (overlapp in industry, overlap in geography?)
+				%cite alan berger aggressively (?)
+				%table 3 is too deep needs to be split into at least 2-3 tables
+				%Tab 5 panel b is appendix
+				%oncsider only taking into account cases with rulings
+				%state vs federal lawsuits?
+				% add standard package describing banker data etc
+				
+				%make example a bit more clear with all three types of data definitions included, also including rel acquired etc?
+				
+				%comment wagner: 
+				% CAREFUL with female bankers better
+				% Surprised about lawsuit use (isn't it identification?)
+				% if lawsuits cause bankers to move, should make different people move?
+				% Dependent variable first part is banker switched/banker hired
+				
+				
+				%can we add resutls on ``relative ranking within bank'' and talk about rain makers? show some banks rely on raimn makers others more equal, link to bank structure, link to stein 2002? Table A2?
+				%make placebo using non-gender lawsuits such as religion, and related lawsuits such as sexual orientation or race. Use sexual harrasment as particularly severe. Scale lawsuits gender/total lawsuits?
+				
+				
+				%cite annectdotal evidence and create appendix with that stuff
+				%wsj story, includes tangential reference of bank poaching a wells fargo banker and subsequently manage to move clients over. 
+				%\url{https://www.wsj.com/articles/losing-450-000-in-three-days-hackers-trick-victims-into-big-wire-transfers-11582453800?mod=hp_lead_pos5}
+				
+		\end{itemize}
+
+Switching regressions
+
+\begin{itemize}
+	\item \url{https://journals.sagepub.com/doi/pdf/10.1177/1536867X0400400306}
+	\item 	
+\end{itemize}
+
+
+%
+%%\color(blue)
+%To Do meeting Zurich March 6:
+%
+%
+%\begin{enumerate}
+%	\item Regression ``switching likelihood''
+%		\begin{itemize}
+%			\item move from banker-deal to banker-year structure
+%			\item Identify first year after move as ``switched''
+%			\item generate one-period lagged values for no. deals, no. clients etc
+%			\item run reg as: reg switched on no. clients etc
+%		\end{itemize}
+%	
+%	\item Main specs
+%		\begin{itemize}
+%			\item collapse sample into pre-post switch for each banker as in Bertrand manage with style to address issue of censoring etc. 
+%			\item create some simple pictures of the data (with 0s and 1s) for the various variables
+%			Initiation strict: Define simply as initiation conditional on having seen this borrower before? Does not really make sense bc in order to be inside the ``client list'' the borrower must have been in the sample. Currently : consider only second loan between a borrower and bank, i.e. repeat business? Should we clal it ``initiation relationship''?
+%			\item Can we require the banker to specifically sign the loan or is this stretching the data too much?
+%			\item check deal volume in US or \% of assets?
+%			\item The Dangers of Extreme Counterfactuals King and Zeng PSci paper
+%		\end{itemize}
+%	
+%	\item Cross section
+%		\begin{itemize}
+%			\item cross section of banks: which banks more pronounced? Big Bnaks? Small Banks? International banks?
+%			\item cross section of firms: large firms? small firms? more opaque firms(junk rated, high intangibles, high r and d)?
+%			\item cross-cross section: small bank-small firm, small bnak large firm, large bank large firm? 
+%		\end{itemize}
+%
+%	Misc: Show some basic stats under table: mean of dependent variable (to judge coefficient), maybe number of treated years/firms? \\
+%	File that contains the list of bank mergers (13F): \url{https://www.dropbox.com/s/3on9kfw5p9lj93q/Merger%20sample%20to%20post.xlsx?dl=0} 
+%	
+%\end{enumerate}
+%
+%%- sources variation
+%%- switching regression setup optimal?)
+%%- female climate banking data
+%%- list of names to marco
+%
+%
+%%\color(green)
+%\section{Comments}
+%\subsection{09 Apr 2020 - Brown Bag Zurich}
+%\subsubsection{Steven and seminar participants}
+%\begin{itemize}
+%	\item Define relationship early on (e.g., in Boot JFI 2000 there is a definition; but also in my review paper with David Smith - \url{https://pure.uvt.nl/ws/portalfiles/portal/320078/ongena.pdf}{here} we make an attempt, then operationalize
+%	\item What is switching, if you have single vs multiple banks? Define switching early on? Tricky. (e.g. what happens when you have a firm that is connected with multiple banks?)
+%	\item Legal constraints on switching bank and taking clients (ok, but this works against us finding anything. However, do these constraints really exist?) \textcolor{blue}{That's precisely the idea of using non compete clauses as in Jeffers 2019}
+%	\item Jon Smith maybe be multiple people (Christoph: You certainly received this comment already, how do you deal with it?) SO: Although in the US they then often also say Jon Smith Jr the IV etc \textcolor{blue}{CH: I ran the first name and last ame of each banker separately against a list of the 1000 most common boy and girl first names in the US as well as the 1000 most common last names. I then match all names themselves against each other using 3 separate string matching techniques. I only match two names as the same person if two of the three string matching techniques call them the same name, and either the first or the last name are NOT in the list of the 1000 most common names. I cannot fully rule out that there are  some ``john smiths'' in the data. But in that case, we should see them work in parallel at two separate banks (bc they are separate people). We do not classify those as switchers since we require a banker to not show up any more at his old bank.} 
+%	\item Firms that borrow a little will more easily become a relationship firm
+%	\item Why not a continuous variable for relationship strength (no. deals with client)? Why non-linear findings? Weired that there is nothing for the 6+ clients. Cutoff seems arbitrary (either use median or other dichotomous differentiation) \textcolor{blue}{CH: Yeah instead of number deals overall etc we can run it as no. deals with a specific client and interact to show it is the high relationship clients that follow firs t(I think htat is on our list anyway?}
+%	\item Run \#Deals and Seniority concurrently (the more senior you are, the more deals you're likely to close)
+%	\item Have statistics on the number of observations, distributions? Lots of zeros concern (collinearity) \textcolor{blue}{CH: yeah I had this concern before in my other paper. There is no econometric reason to believe this is an issue. Fixed effects mean we only draw inference from observations that change, and clustering absorbs time trends within borrowers. Sadly still got this point recently in a very nasty rejection. I have no idea how to address it, to the best of my knowledge there is no econometric justification, just people's gut feeling. }
+%	\item Size of the borrower may matter? When large, more business will be brought over, but firm may be also less opaque (hence lower info rents). Maybe differentiate btw firms with credit ratings? The same holds for banks: When a bank is diversified, probability of cross-selling higher, value of rel acquired larger \textcolor{blue}{CH: I think that's on our list}
+%	\item Firms may borrow concurrently from multiple banks?
+%	\item Lead banks? Clearly differentiate the effect for the clients where the connection comes from deals where the banker was lead and those where the banker was only participant \textcolor{blue}{CH: Fair point was on our list as appendix table. We know it works in this specification. }
+%	\item Is the old bank losing the relationship? Would be cool to have a measure of how much business is lost through the banker leaving. Maybe, the ``hole'' is take care of by new bankers? \textcolor{blue}{CH: Since most borrowers have just one relationship I am pretty sure this is a zero sum game, but would be cool to check it out. }
+%	\item The review slide on the bankers was less clear, but maybe also because I do not these papers so well; show even better the differences?
+%	\item Maybe use even more descriptive variable names: the clearer the better, even if the name is a bit longer (no problem in terms of loss of column or text space)
+%	\item Maybe make figure with treatment / variable definitions, to the extent possible and to clarify even swifter
+%	\item Distributions? Multicollinearity?
+%\end{itemize}
+%
+%\subsubsection{Other comments}
+%\begin{itemize}
+%	\item Finds it particularly interesting to look at the cultural distance between the borrowers and the banker
+%	\item Low trust cultures value relationships more compared to high trust cultures (where banking is more transactional). Maybe these connections are more important and more likely to be brought over. Also, match cultures at the CFO/CEO level with the banker level. You can get information on the country of origin using banker names, \url{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3153900}{see here}. However, is there enough variation in the bankers' data?
+%	\item Use bank mergers as exogenous variation - when two banks merge that cover the same clients, one of the bankers is more likely to go. \textcolor{blue}{CH: I get this all the time. Does not alleviate endogeneity concerns at all. Both the merger itself is endo, but also which bankers stay and which move. If people get fired, it is bad people that get fired. If people leave voluntarily, it is good people that leave. It is one of those comments that the commenter likes to make, but the moment we implement it we get crushed. }
+%	\item Use the no. of M\&A deals that a firm closed in the past as proxy for client attractiveness. Requiring volumes might limit the sample size too much. \textcolor{blue}{CH: I think something like that might be cool and doable (no. M\&A, no. Bonds?)} 
+%	\item Is getting data from Dealogic possible? They are the ones that make bankers' league tables.
+%	
+%	%% PER OSTBERG
+%	\item Change estimation method from LPM to (...) and show that findings are consistent when using less FEs (?) \textcolor{blue}{CH: Can do logit doesn't make any difference. }
+%	\item Reason for switching is in the first place bank profitability. Problem is that you want to isolate bankers' past success while keeping constant the \emph{profitability of the bank}. [Shouldn't this be sort of taken care of by the bank $\times$ yr FEs?] \textcolor{blue}{CH: Yes bank year FE takes this out. I was thinking already we might want to add a section where we exlplain each FE and what they rule out. }
+%	\item Look at the issue of the bankers switching as if it were a tournament. How long you play is related to how much you win. Problem is to find out who your control group is, since you observe only the winners (i.e., those that win the mandates). See e.g. \url{https://www.sciencedirect.com/science/article/pii/S0304405X19301370?dgcid=author} (?)
+%	\item Possible identification: look at UBS who gets bailed out and can't pay any bonuses. This will make it more likely that bankers leave. 
+%	\item Ideally, you want to separate value from profit (is it possible?) \textcolor{blue}{CH: Hard to do since unobservable. There are some rules of thump I think (M\&A very profitable, loans less so?) but nothing ``pure''}
+%	\item You could use league tables as a way to find out who the peer group for the bankers is
+%	\item Ultimately, what is the question of the paper? Do the results make sense and are they interesting? Not surprised that the clients follow the banker. Do you want to make it a labor paper? If yes, how are you going to identify it? Tough sell since you know too little about the bankers.
+%
+%	%% JIRI
+%	\item How should we think about the effects? What is the benchmark case?
+%	\item Bankers switch due to a rational reasoning. What is the ``duration'' of a given banker, how does his career look like? Is there a certain point in time where the switching probability is at its largest?
+%	\item Borrower size more important than no of clients in portfolio. If anything, bankers that just got a ``big fish'' more valuable than bankers with many small clients.
+%	\item How does the distribution of (large) clients within a bank look like? Is it concentrated amongst a small group of bankers or is it divided amongst many individuals? Also, what would the optimal strategy of the bank be? Pay one banker a lot and give him the biggest share of the clients? 
+%	\item How does the borrower size of the client portfolio change over the time the banker is at the bank? Is this related to the probability of switching (is there somebody who is blocking the banker)
+%	\item Who are the winners/losers of the switching game? Those that switch or those that stay? Not obvious
+%	\item Match bankers on age/tenure/seniority and divide amongst Switch\&cool\_portfolio - switch\&not\_cool - not-switch...
+%\end{itemize}
+%
+
+%\subseciton{Comments Marco June 4}
+%Some suggestions regarding the draft:
+%In the intro we motivate the importance of bankers in relationship bankers with (Berger and Udell, 2002), but in their paper they talk about small clients. Our results are based on syndicated lending, hence we can say that the value we document is something like a lower bound of the "true" value of bankers. Don't know if this makes sense though.
+%We mention SEOs in the intro, but really the coefficient in the sample split is insignificant. I'd wither take out the sentence "We find that after a banker moves, the banker’s former borrower also issues new bonds and seasoned equity offerings with the new lender." or just mention bonds
+%What about presenting summary stats separately for the bankers that switch and those that don't? In a way we can present the findings via summary statistics. Just a thought, possibly a stupid one. 
+%I'd mention in Table 8 that the sample is different, e.g., add the sentence "We keep only the first observation after a banker switches" (otherwise the reader might be left wondering where the remaining ~40,000 obs are)
+%Include a paragraph in the intro about the corporate culture literature (e.g., Jeffers 2019, Jeffer & Lee, 2019, Grennan 2020...). I can do this after Gerzensee if you agree.  
+%
+%
+%%%\color(black)

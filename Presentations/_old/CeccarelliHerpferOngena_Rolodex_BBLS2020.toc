@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Big picture}{2}{0}{1}
+\beamer@sectionintoc {2}{Data \& methodology}{14}{0}{2}
+\beamer@sectionintoc {3}{Main Findings}{28}{0}{3}
+\beamer@sectionintoc {4}{Main finding 2 - Initiation and deal volume}{35}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{57}{0}{5}

@@ -1,0 +1,222 @@
+
+\documentclass[12pt]{article}
+
+% My standard included packages
+\usepackage{setspace}           % Allows easy changes to line spacing
+\usepackage{graphicx}           % Allows including of graphics files
+\usepackage{amsmath}
+\usepackage{amsfonts}           % Additional math capabilities
+\usepackage{marginnote}         % Used with todonotes package
+\usepackage{datetime}           % Allows formatting of date and time
+\usdate                         % Use usual LaTeX date layout
+\usepackage{enumitem}           % List formatting commands
+\setlist{noitemsep}             % Remove space between list items
+%\usepackage{subfigure}          % Create numbered and captioned subfigures
+\usepackage{rotating}           % Create landscape tables and figures
+\usepackage[dvipsnames]{xcolor} % Refer to colors by name
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=NavyBlue,citecolor=NavyBlue]{hyperref}           % URLS and hyperlinks
+\usepackage{hyperref}           % URLS and hyperlinks
+\usepackage{float}              % Activate [H] option to place figure HERE
+%\usepackage[nofiglist,notablist]{endfloat}
+\usepackage[longnamesfirst,round]{natbib} % Bibliography formatting
+\usepackage{versionPO}          % Include text conditionally
+\usepackage{amsthm}
+\usepackage[bottom]{footmisc} 	% Flushes footnotes at the bottom of the page
+\usepackage{bbm}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage[singlelinecheck=false, labelfont=bf]{caption}
+\usepackage{subcaption}
+%\usepackage{multirow,longtable,multirow} % Fancy tables
+\usepackage{threeparttable,threeparttablex,multirow,longtable,multirow} % Fancy tables
+
+\interfootnotelinepenalty=10000 %do not break footnotes
+
+
+\excludeversion{notes} % Include notes?
+\includeversion{comment}
+\includeversion{links}          % Turn hyperlinks on?
+\excludeversion{submit}		% Format for conference submission?
+\excludeversion{toc}		% Include table of contents?
+\excludeversion{longabs}	
+
+% Turn off hyperlinking if links is excluded
+\iflinks{}{\hypersetup{draft=true}}
+
+% Notes options
+\ifnotes{%
+	\usepackage[margin=1in,paperwidth=10in,right=2.5in]{geometry}%
+	\usepackage[textwidth=1.4in,shadow,colorinlistoftodos]{todonotes}%
+}{%
+\usepackage[margin=1in]{geometry}%
+\usepackage[disable]{todonotes}%
+}
+
+
+%added by Marc
+\usepackage[T1]{fontenc} %to print European characters
+\usepackage[utf8]{inputenc} %to type European characters
+\usepackage{lmodern} %makes fonts nicer when compiled on Windows
+\usepackage{adjustbox} %enables the \resizebox{...} command
+\usepackage{afterpage} %to leave a blank page
+\usepackage{tabularx}
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+
+% Allow todonotes inside footnotes without blowing up LaTeX
+% Next command works but now notes can overlap. Instead, we'll define
+% a special footnote note command that performs this redefinition.
+%\renewcommand{\marginpar}{\marginnote}%
+
+% Save original definition of \marginpar
+\let\oldmarginpar\marginpar
+
+% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
+
+% Define note commands
+\newcommand{\smalltodo}[2][] {\todo[caption={#2}, size=\scriptsize, fancyline, #1] {\begin{spacing}{.5}#2\end{spacing}}}
+\newcommand{\chris}[2][]{\smalltodo[nolist,color=green!30,#1]{{\bf CH:} #2}}
+\newcommand{\mf}[2][]{\smalltodo[color=blue!30,#1]{{\bf MF:} #2}}
+\newcommand{\chnolist}[2][]{\smalltodo[nolist,color=green!30,#1]{{\bf CH:} #2}}
+\newcommand{\chfn}[2][]{%  To be used in footnotes (and in floats)
+	\renewcommand{\marginpar}{\marginnote}%
+	\smalltodo[color=green!30,#1]{{\bf CH:} #2}%
+	\renewcommand{\marginpar}{\oldmarginpar}}
+\newcommand{\textnote}[1]{\ifnotes{{\colorbox{yellow}{{\color{red}#1}}}}{}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\sym}[1]{\rlap{#1}} %command for stars in tables
+
+
+% Packages included specifically for this document.
+\usepackage{texintro}           % Document-specific definitions
+\usepackage{tocvsec2}           % More flexible formatting of table of contents
+\usepackage{bibentry}           % Print full citation in text
+%the next three lines are a workaround to make \nobibliography work with the chicago bibliography style. Added by Marc on 12/06/2017.
+ \makeatletter 
+ \renewcommand\BR@b@bibitem[2][]{\BR@bibitem[#1]{#2}\BR@c@bibitem{#2}}           
+ \makeatother
+ 
+\nobibliography*                % Allow use of \bibentry command
+\usepackage{tikz}             % Already included by todonotes
+\usepackage{lscape} %change parts to landscape view
+\usetikzlibrary{matrix}
+%\usepackage[retainorgcmds]{IEEEtrantools}  % Equation formatting. Option needed to
+% allow enumitem to work.
+
+\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
+
+% Number paragraphs and subparagraphs and include them in TOC
+%\setcounter{tocdepth}{2}
+\begin{document}
+
+
+\newcommand{\tit}{How do borrowers find their banks? \\ The value of individuals in bank relationship formation}
+
+
+\newcommand{\ack}{ 
+We thank Kornelia Fabisik, Stefano Ramelli, and Alexander F. Wagner for helpful discussions and seminar and conference participants at the University of Zurich and SFI Research Days for helpful comments and suggestions. 
+ \textnote{\textbf{INCLUDES NOTES.}}} 
+	
+\newcommand{\abs}{%156 words
+	\noindent We investigate the role of individual commercial bankers in facilitating bank-borrower relationships. We find that after a relationship banker switches to a new bank, her former borrowers are almost twice as likely to initatie a new lending relationship with that lender, compared to the unconditional mean. These newly formed relationships extend beyond lending and include cross selling of bonds and other financial services unrelated to lending itself. The newly acquired borrowers bring an increase in deal volume of 0.66\% across the various product groups. Bankers that close more deals, especially with clients for whom they are the only relationship manager, are more likely to switch. In a specific applicatino, we show that female bankers are leaving banks with female-unfriendly cultures and shift significant business to competing banks. 
+	\medskip
+
+
+
+\noindent \textbf{JEL Classifications:} D22, G21, G32. \medskip
+
+}
+\newcommand{\abslong}{
+}
+\title{\tit\ifsubmit{}{\thanks{\ack}}}
+
+\ifsubmit{}{\author{\large 	Marco Ceccarelli\thanks{University of Zurich and Swiss Finance Institute, Plattenstrasse 14, Zurich 8032, Switzerland; \href{mailto:marco.ceccarelli@bf.uzh.ch}{marco.ceccarelli@bf.uzh.ch}.} \ \ \ \
+		Christoph Herpfer\thanks{Emory University, Goizueta Business School, 1300 Clifton Road, 30322 Atlanta, Georgia; \href{mailto:christoph.herpfer@emory.edu}{christoph.herpfer@emory.edu}.} \ \ \ \
+		Steven Ongena\thanks{University of Zurich, Swiss Finance Institute, KU Leuven, and CEPR, Plattenstrasse 14, Zurich 8032, Switzerland; \href{mailto:steven.ongena@uzh.ch}{steven.ongena@uzh.ch}. %Corresponding author.
+		}}}
+
+\date{\ifsubmit{}{\today}}
+
+%%%%%%%%%%%%%%%%%%%
+%Comments and to dos
+
+
+
+%List of people to send draft to
+%http://smityak.people.clemson.edu/MityakovCV.pdf
+%MITYAKOV Clemson
+%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}  \textcolor{red}{\large Preliminary and incomplete - Please do not circulate \\ ~ }
+
+\end{center}
+
+\begin{abstract}
+  \iflongabs{\abslong}{\abs}
+\end{abstract}
+\cleardoublepage
+
+% Select spacing
+\doublespacing
+
+\setcounter{page}{1}
+
+
+%\ifcomment{\input{./text/notes.tex}}{}
+
+
+\section{Introduction}
+\label{sec:Intro}
+\input{./text/introduction.tex}
+
+
+\section{Data}
+\label{sec:Data}
+\input{./text/data.tex}
+
+
+\section{Results}
+\label{sec:Results}
+\input{./text/results.tex}
+
+
+\section{Conclusion}
+\label{sec:Conclusion}
+\input{./text/conclusion.tex}
+
+
+\pagebreak
+\singlespacing
+
+\label{sec:Lit}
+\bibliographystyle{jfe}
+\bibliography{./BIBTEX_Library}{}
+
+\clearpage
+
+ \section*{Figures}
+ 	\input{./text/figures.tex}
+ \label{app:Figures}
+
+\section*{Tables}
+\label{app:Tables}
+
+\input{./text/tables.tex}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Appendices
+ \clearpage 
+ \appendix
+ \input{./text/appendix.tex}
+
+
+\end{document}

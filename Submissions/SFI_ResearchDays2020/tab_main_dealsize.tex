@@ -1,0 +1,20 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{.8\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{4}{c}}
+\toprule
+                Dep. variable: &\multicolumn{3}{c}{Log Deal Volume}                             \\\cmidrule(lr){2-4}
+                &\multicolumn{1}{c}{(1)}   &\multicolumn{1}{c}{(2)}   &\multicolumn{1}{c}{(3)} \\
+\midrule
+Rel\_acq        &     4.98***&     5.20***&     2.98***  \\
+                &  (44.00)   &  (20.99)   &  (10.90)     \\
+\midrule
+Observations    &  924,238   &  924,197   &  812,051   \\
+R-squared       &     0.08   &     0.14   &     0.51  \\
+\midrule Year FE &      Yes   &      Yes   &       No   \\
+Firm FE         &      Yes   &       No   &       No  \\
+Firm-Bank FE    &       No   &      Yes   &      Yes   \\
+Bank-Year FE    &       No   &       No   &      Yes    \\
+Firm-Year FE    &       No   &       No   &      Yes    \\
+\bottomrule
+\end{tabular*}
+}

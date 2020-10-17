@@ -1,0 +1,85 @@
+%Start with the bankers sample -> obtain client portfolio and employment history.
+%Then describe Dealscan and deal volume of clients and if the relationship is initiated 
+
+The following sections provide a description of our sample. We start by obtaining the employment history of bankers and their client portfolio from the SEC filings of all non-financial U.S. borrowers. Our sample starts in 1996, the first year of mandatory electronic filing, and ends in 2013.  We complement this information with detailed loan data from LPC Dealscan, and supplement it with data on bond underwriting from Capital IQ. % (bond underwriting, SEO offerings, and M\&A advisory). %Finally, we obtain the demographic information of bankers from the US Census Bureau. 
+
+\subsection{Bankers' personal relationships}
+
+We obtain data on the employment history of bankers from publicly available loan contracts. SEC Regulation S-K, Item 601(b), classifies loan contracts as ``material events'' that need to be disclosed by borrowing firms in their 8-K, 10-K, or 10-Q filing. We download these filings from EDGAR for all Compustat firms between 1996 and 2013. We then apply an algorithm that identifies loan contracts in these filings, and extracts the names and employers of the bankers from the signature pages of the loan contracts.\footnote{More detailed descriptions of the data, as well as examples and quality checks of the dataset can be found in \cite{Herpfer.2018} and \cite{Gao.2018b}.} Figure \ref{fig:signature} presents an example of one such page, with circles indicating the pieces of information extracted by our algorithm.
+
+\textcolor{red}{Christoph: I think it might make more sense to only have one observation at the new employer? Otherwise we really bias ourselves against finding our result? There is a strange autocorrelation where after the switch, banker hired can never take the value 1 anymore for this banker-bank combination? Only problem with that setup is that some bankers might change more than once and we could only do this transformation of the data for their first switch. The pre- post collapsed table is a very important robustness test for this. }
+
+\begin{figure}[H] \caption{Example of banker's employment history} \label{fig:ex} \begin{center}
+	\( \begin{array}{ccccccc} 
+	Year & Banker & Bank & Borrower & Banker~hired & Client~portfolio & Tenure \\ \toprule
+	2000 & Anne & Bank~of~ America & GM & 0 & GM & 1\\
+	2001 & Anne & Bank~of~ America & - & 0 & GM & 2\\
+	2002 & Anne & Bank~of~ America & - & 0 & GM  & 3\\
+	2003 & Anne & Bank~of~ America & HP & 0 & GM;~HP & 4  \\
+	2005 & Anne & JPMorgan & GM & 1 & GM;~HP  & 1\\
+	2006 & Anne & JPMorgan & - & 0 & GM;~HP  & 2\\
+	\multicolumn{6}{c}{\ldots} \\
+	2009 & Anne & JPMorgan & 3M & 0 & GM;~HP;~3M & 5\\ \bottomrule
+	\end{array} \) 
+\end{center} \end{figure}
+
+For each loan we obtain the name of the banker and the name of the bank for which the banker is signing.\footnote{In our main analyses we do not require to find a match between the loan contract we download from EDGAR and Dealscan as our algorithm extracts contracts not in DealScan \citep{Herpfer.2018}. These are often amendments and extensions of existing loans which are not a focus of DealScan, but allow us to more precisely pinpoint the points of time at which  bankers switch between employers.  Our results remain unchanged if we restrict the sample to the deals for which we have an overlap with Dealscan.} Figure~\ref{fig:ex} shows an example of a banker's employment history. We start from the loans that we extract from the SEC and expand the dataset to obtain a balanced panel: E.g., whilst working at Bank of America, banker Anne signs a loan with GM in 2000 and one with HP in 2003. We assume that a banker works at the same bank for all years between different loans: E.g., Bank of America will employ banker Anne for all years from 2000 to 2003, even if we do not observe deals in all those years.
+
+We define the indicator $Banker~hired$ as the first year a banker appears on a loan contract for a new bank. The client portfolio of a banker consists of all firms for which the banker's name appears in the loan documents. We will refer to these clients as firms with whom a banker has a ``\emph{personal relationship}''.  Most large corporate loans are syndicated between various lenders. Our analysis only assigns clients into a banker's portfolio if the banker was working for the lead arranger of the syndicate, as these bankers mostly are the ones that directly interact with borrowers and form personal relationships with clients. Crucially, the banker carries over her client portfolio when she gets hired by the new bank. The tenure of the banker counts the number of years that she is been working for the same bank. %CH: I think this is true but not too relevant (does it change any of our analysis? Induce a specfic bias ? )\footnote{Our measure of tenure is a lower bound for the nuber of years a banker has worked in a given bank, since only senior bankers sign loan contracts. To the degree that bankers had to work their way up as junior bankers, we under estimate the true tenure. } 
+
+\begin{center} - Table~\ref{tab:sumstat} - \end{center}
+
+Panel A of Table~\ref{tab:sumstat} provides summary statistics of the banker's client portfolio characteristics. The sample is at a banker-year level and covers over 20,000 bankers that collectively switch employer 1,066 times, while spending an average 3.7 years at one bank. Only 19\% of the bankers in the sample are female.  \textcolor{red}{Christoph: This feels a little off? 3.7 years per bank and 20,000 bankers implies 74k banker-year obs. Need to add another 4k from those bankers that appear at multiple banks brings us to 80 k? Can we run a robustness test where we only consider bankers that switch at some point? }
+
+In the first part of our analysis we ask which characteristics of the bankers' client portfolio make changing banks more likely. We start by computing the total number of clients with which the banker had a relationship at a given bank. To distinguish between small and large clients, we obtain each borrower's total assets from Compustat. We define a large client as having total assets above the 75-th percentile of sample firms during a given year. Small clients are those with assets below the 25-th percentile. The average banker has a personal relationship with three clients, half of which are large.\footnote{Only 3\% of borrowers are classified as small, which is in line with the idea that the syndicated loan market is dominated by large borrowers.}
+
+To investigate whether bankers have less ability to make clients follow them to new banks if the client ahs multiple contact people at the bank, we define an indicator for clients that have deals with multiple bankers at the same bank, i.e., ``$Multiple~contact$'' clients. ``$Single~contact$'' clients are defined as those that always interact with the same banker when borrowing from a bank. The average banker has 1.5 single contact clients and 1.6 multiple contact clients. 
+
+%In addition to the number of clients, the number of deals that a banker closes may also be material in the probability of observing a banker switching employer. 
+We also calculate the number of specific loans issued by each banker, as well as those that the banker closes with small and large clients. We also count the number of deals closed with single and multiple contact clients. The average banker closes an average of 4.14 deals. \textcolor{red}{CH: I think we might want to drop this description and the variables if we don't use them: , 47\% of which are with large clients and 3\% with small clients. Bankers close an average of 2 and 2.5 deals with single and multiple contact borrowers respectively.}
+
+Panel B of Table~\ref{tab:sumstat} shows summary statistics at a bank-year level. On average, a bank employs 16 bankers, each of which closes 1.5 deals per year. A bank lends to an average of 29 clients, out of which 2.7 are large and 0.3 small. Less than 1\% of banks' clients is covered by multiple bankers. For all those numbers, it is important to keep in mind that we only observe a fraction of the actual loan volume issued, since many borrowers are private therefore do not file with the SEC. 
+
+% To understand the role of a bank's culture in determining its attractiveness as employer we ... 
+
+\subsection{Banks' client portfolio}
+
+In the second part of the paper, we want to understand whether banks profit when a new banker starts working for them. To this end, we start with the sample of all Compustat firms and obtain all syndicated loans that these firms take out from Delascan for our sample period. We complement this with the underwriting of corporate bonds 
+%and seasoned equity offerings (SEOs), as well as M\&A advisory for which the deal volume is available 
+from CapitalIQ. We refer to ``deals'' as any occurrences of either loans or bonds being issued by the firm. %We do so to obtain a complete picture of the deal volume that a bank has with a firm. 
+
+In a second step, we manually merge these datasets to the bankers sample from the SEC.%\footnote{The sample of bankers is somewhat reduced since there are banks that appear in the SEC filings but not on Dealscan.} 
+We posit that when a banker changes employer, she will bring her personal relationships over to the new bank. An example is illustrated in Figure~\ref{fig:ex_bank} below. We start by creating bank-firm pairs for all firms that were in the client portfolio of the banker that switches (e.g., GM and HP). We define the ever treated indicator $Rel\_acq$ that takes the value of one for all these pairs, for all years after the banker joins the bank. To account for the fact that relationships decay over time, we define the indicator $Rel\_acq^{5yr}$ that is set to missing after the fifth year following the switch. To be even more conservative, we define the absorptive treatment indicator $Rel\_acq^{abs}$, that is set to missing after the first year following the switch. In this way we essentially consider as treated only deals that happen the year the banker switches. 
+
+\begin{figure}[H] \caption{\textbf{Example of bank's client portfolio} \\ Banker Anne switches to JP Morgan in 2005 and JP Morgan ``acquires'' her personal relationship to GM and HP, Anne's old clients from her time at Bank of America.} \label{fig:ex_bank}
+ \begin{center}
+	\( \begin{array}{cccccccc} 
+	Year &  Bank & Firm & Deal & Rel\_acq & Rel\_acq^{5yr} & Rel\_acq^{abs} & Initiation \\ \toprule
+	2004 & JPMorgan & HP & 1 & 0 & 0 & 0 & 1 \\
+	2005 & JPMorgan & HP & 0 & 1 & 1 & 1 & 0 \\
+	2006 & JPMorgan & HP & 0 & 1 & 1 & - & 0 \\
+	\multicolumn{6}{c}{\ldots} \\
+	2010 & JPMorgan & HP & 1 & 1 & - & - & 0 \\ \midrule 
+	2004 & JPMorgan & GM & 0 & 0 & 0 & 0 & 0 \\
+	2005 & JPMorgan & GM & 1 & 1 & 1 & 1 & 1 \\
+	2006 & JPMorgan & GM & 0 & 1 & 1 & - & 0 \\
+	\multicolumn{6}{c}{\ldots} \\
+	2010 & JPMorgan & GM & 1 & 1 & - & - & 0 \\ \bottomrule
+	\end{array} \) 
+\end{center} \end{figure}
+
+It could be that the results we observe are mechanical, since we identify bankers that switch using deals that they sign at a new bank. To make sure that this is not the case we will re-run all of our tests using the treatment indicators $Rel\_acq\_nofirst$, $Rel\_acq\_nofirst^{5yr}$, and $Rel\_acq\_nofirst^{abs}$, defined as before but ignoring the first deal at the new bank.
+
+Not all firms with whom a bank acquires a personal relationship by employing a new banker are additions to the client portfolio of the bank. In our example in Figure~\ref{fig:ex_bank}, JP Morgan had already closed a deal with HP \emph{before} banker Anne joined the bank. In contrast, the first deal JP Morgan closed with GM happened after banker Anne joined the bank and brought over his personal relationship to the firm. To make sure that we attribute only the latter type of deals to the new banker, we define the indicator variable $Initiation$ that takes the value of one for the first deal that the bank signs with a firm or if the last deal occurred more than five year in the past. For robustness, we also define $Initiation\_strict$ that captures only the first interaction between a bank and a firm. %%  STRICT % Note that we ARE overweighting banks with more clients, since they appear more often in the sample.
+
+The final dataset is then expanded to obtain a balanced panel for all firm-bank pairs with whom the bank had a deal or acquired a personal relationship through a banker.\footnote{While this increases the number of observations substantially, it works against us finding a positive impact of a banker switching on the client portfolio and loan volume since we create bank-firm pairs for years when \emph{no} deals occur. Moreover, in this way we are not overweighting banks that close more deals. Our results are robust to estimation on a collapsed borrower-bank panel that features just a single observation for each borrower-bank pair for the periods before and after a personal relationship is acquired, respectively. These results can be found in Table \ref{tab:collapsed}.} Our sample covers some 55,000 bank-firm pairs between 1996 and 2013. 
+
+\begin{center} - Table~\ref{tab:sumstat_bank} - \end{center}
+
+Panel A of Table~\ref{tab:sumstat_bank} presents summary statistic at the bank-firm-year level. The average bank acquires relationships to about 3\% of its client portfolio. This figure becomes 1.5\% and 0.3\% if we consider only the five-year or the one-year period after the switch of a banker. Only 5.2\% of all bank-firm interactions are accounted for by deals with first-time clients. 
+
+To measure the deal volume that the bank generates thanks to the personal relationships, we sum the value of all deals that a bank closes with a firm during a year. Panel B of Table~\ref{tab:sumstat_bank} shows summary statistics for bank-firm-years when deals occur. During such periods, a bank signs an average 1.7 deals with a client. The average deal volume is USD 828 million. When looking at syndicated lending and bond underwriting in isolation, the deal size is USD 418 million and USD 280 million. %SEO underwriting and M\&A advisory deals tend to be smaller, averaging USD 56 million and USD 75 million respectively. Moreover, syndicated loan and bond underwriting occurs more frequently than SEO underwriting and M\&A advisory.\footnote{While less frequent and smaller, M\&A advisory and SEO underwriting usually generate higher fees for the banks. Hence, it is warranted to analyze these different transaction types in isolation.}
+
+Panel C presents a brief overview of the balance sheet information of the banks' clients. The average firm is large, with total assets of about USD 7 billion, leverage of 57\%, EBITDA of USD 227 million, profitability of 5\%, and a ratio of intangibles to total assets of 14\%. 
+
+% ?? EMPIRICAL STRATEGY HERE OR WITH THE RESULTS ??

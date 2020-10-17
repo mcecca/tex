@@ -1,0 +1,18 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{6}{c}}
+\toprule
+                &\multicolumn{2}{c}{All bankers}&\multicolumn{2}{c}{Non-key}&\multicolumn{2}{c}{Key}  \\\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+                &\multicolumn{1}{c}{(1)}   &\multicolumn{1}{c}{(2)}   &\multicolumn{1}{c}{(3)}   &\multicolumn{1}{c}{(4)}   &\multicolumn{1}{c}{(5)}   &\multicolumn{1}{c}{(6)}   \\
+\midrule
+\%Bank deals by banker&     0.18***&     0.29***&     0.39***&     0.69***&     0.13***&     0.17***\\
+                &   (8.08)   &   (9.91)   &   (7.25)   &   (9.28)   &   (4.36)   &   (3.62)   \\
+\midrule
+Observations    &   43,233   &   43,233   &   36,730   &   36,427   &    6,300   &    4,954   \\
+R-squared       &     0.24   &     0.30   &     0.18   &     0.22   &     0.57   &     0.71   \\
+\midrule Year FE &      Yes   &       No   &      Yes   &       No   &      Yes   &       No   \\
+Bank FE         &      Yes   &       No   &      Yes   &       No   &      Yes   &       No   \\
+Bank-Year FE    &       No   &      Yes   &       No   &      Yes   &       No   &      Yes   \\
+\bottomrule
+\end{tabular*}
+}

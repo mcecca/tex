@@ -1,0 +1,32 @@
+\begin{thebibliography}{6}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Bharath et~al.(2007)Bharath, Dahiya, Saunders, and
+  Srinivasan}]{Bharath2007}
+Bharath, S., Dahiya, S., Saunders, A., Srinivasan, A., 2007. So what do {I}
+  get? {T}he bank's view of lending relationships. Journal of Financial
+  Economics 85, 368--419.
+
+\bibitem[{Chodorow-Reich(2014)}]{chodorow2014}
+Chodorow-Reich, G., 2014. The employment effects of credit market disruptions:
+  Firm-level evidence from the 2008--9 financial crisis. The Quarterly Journal
+  of Economics 129, 1--59.
+
+\bibitem[{Gao et~al.(2020)Gao, Kleiner, and Pacelli}]{Gao2018}
+Gao, J., Kleiner, K., Pacelli, J., 2020. Credit and punishment: Career
+  incentives in corporate banking. Review of {F}inancial {S}tudies,
+  {F}orthcoming.
+
+\bibitem[{Herpfer(2018)}]{Herpfer2017a}
+Herpfer, C., 2018. The role of bankers in the {US} syndicated loan market.
+  {W}orking paper, {E}mory {U}niversity.
+
+\bibitem[{Ioannidou and Ongena(2010)}]{Ioannidou2010}
+Ioannidou, V., Ongena, S., 2010. “time for a change”: loan conditions and
+  bank behavior when firms switch banks. The Journal of Finance 65, 1847--1877.
+
+\bibitem[{Ivashina and Scharfstein(2010)}]{Ivashina2010}
+Ivashina, V., Scharfstein, D., 2010. Bank lending during the financial crisis
+  of 2008. Journal of Financial economics 97, 319--338.
+
+\end{thebibliography}

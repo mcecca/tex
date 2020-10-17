@@ -1,0 +1,24 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{4}{c}}
+\toprule
+               Dep. var: & \multicolumn{4}{c}{Banker switched (\%)} \\ &\multicolumn{2}{c}{Manual Check}&\multicolumn{2}{c}{LinkedIn}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+                &\multicolumn{1}{c}{(1)}   &\multicolumn{1}{c}{(2)}   &\multicolumn{1}{c}{(3)}   &\multicolumn{1}{c}{(4)}   \\
+\midrule
+PostXTreated    &    -1.58***&    -2.96***&    -1.87***&    -2.09***\\
+                &  (-2.65)   &  (-3.19)   &  (-3.62)   &  (-3.52)   \\
+ 
+Log \#Bankers per state&    -0.35   &    -0.07   &    -0.10   &    -0.04   \\
+                &  (-1.09)   &  (-0.18)   &  (-0.36)   &  (-0.12)   \\
+ 
+NC-Rank 1991    &            &    -0.00   &            &     0.00   \\
+                &            &  (-0.03)   &            &   (0.07)   \\
+ 
+NC-Rank 2009    &            &    -0.05   &            &    -0.01   \\
+                &            &  (-1.01)   &            &  (-0.39)   \\
+\midrule
+Observations    &    2,530   &    2,525   &    5,885   &    5,877   \\
+YearXRegion FE  &      Yes   &      Yes   &      Yes   &      Yes   \\
+\bottomrule
+\end{tabular*}
+}

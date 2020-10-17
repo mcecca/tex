@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: 20200202_Rolodex_1.aux
+The style file: jfe.bst
+Database file #1: ./BIBTEX_Library.bib
+Warning--I didn't find a database entry for "Jaekel.2016"
+You've used 34 entries,
+            2708 wiz_defined-function locations,
+            846 strings with 9986 characters,
+and the built_in function-call counts, 15226 in all, are:
+= -- 1714
+> -- 593
+< -- 29
++ -- 233
+- -- 189
+* -- 1221
+:= -- 2788
+add.period$ -- 101
+call.type$ -- 34
+change.case$ -- 233
+chr.to.int$ -- 32
+cite$ -- 34
+duplicate$ -- 619
+empty$ -- 1003
+format.name$ -- 295
+if$ -- 3034
+int.to.chr$ -- 3
+int.to.str$ -- 1
+missing$ -- 33
+newline$ -- 106
+num.names$ -- 136
+pop$ -- 184
+preamble$ -- 1
+purify$ -- 199
+quote$ -- 0
+skip$ -- 406
+stack$ -- 0
+substring$ -- 1087
+swap$ -- 81
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 306
+warning$ -- 0
+while$ -- 159
+width$ -- 0
+write$ -- 371
+(There was 1 warning)

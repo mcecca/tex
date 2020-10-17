@@ -1,0 +1,162 @@
+
+
+\singlespacing	
+
+
+	
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Table
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H] \begin{center} 
+		\caption{\textbf{Summary statistics} \\ Shows summary statistics of the sample variables. The sample in Panel A is at the bank-borrower-year level, in Panel B it is at the firm-year  level, and in Panel C it is at the bank-year level. All Panels cover the years from 1996 to 2013. Bond ans SEO underwriting as well as M\&A advisory deals are retrieved from CapitalIQ. Syndicated loans are from Dealscan.  Variables are defined as in Appendix Table \ref{tab:definitions}. }
+		\label{tab:sumstat} 
+	\begin{threeparttable} 
+		\begin{tabular*}{\hsize} {@{\hskip\tabcolsep\extracolsep\fill}l*{7}{c}}
+			\multicolumn{7}{l}{\textbf{Panel A}: Bankers and deals} \\
+			\toprule 
+		 \input{Tables/tab_sumstat_bankers} 
+		 	\bottomrule \\ \multicolumn{7}{c}{[Continued on the next page]} 
+		  \end{tabular*} 	\end{threeparttable}  \end{center} \end{table}
+\newpage
+
+\begin{table}[H] \begin{center} \begin{threeparttable} 
+		\begin{tabular*}{\hsize} {@{\hskip\tabcolsep\extracolsep\fill}l*{7}{c}}
+		 	 \multicolumn{7}{c}{[Continued from previous page]} \\ \\
+		 	 \multicolumn{7}{l}{\textbf{Panel B}: Firm-level variables} \\
+			\toprule 
+		 \input{Tables/tab_sumstat_firms} 
+		 	\bottomrule \\
+		 	\multicolumn{7}{l}{\textbf{Panel C}: Bank-level variables} \\
+		 	\bottomrule \\
+		\input{Tables/tab_sumstat_lender} 
+		 \end{tabular*}
+	\end{threeparttable} \end{center}
+\end{table}
+\clearpage \newpage
+
+
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Table INITIATION
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H] \begin{center} 
+		\caption{\textbf{Initiation} \\ This table shows regressions of an indicator for a new bank-borrower relationships  on a dummy for personal relationship acquired, which identifies deals with the old clients of bankers that switch employers. The dependent variable in Panel A includes new bank-borrower relationship as well as clients with whom the bank had no interaction in the past 5 years. The dependent variable in Panel B does not include first-time clients. The sample is at the bank-borrower-year level and spans from 1996 to 2013. Bond ans SEO underwriting as well as M\&A advisory deals are retrieved from CapitalIQ. Syndicated loans are from Dealscan. Variables are defined as in Appendix Table \ref{tab:definitions}. t-statistics, based on robust standard errors clustered at firm and lender level, are reported in parentheses. ***, **, and * indicate that the parameter estimate is significantly different from zero at the 1\%, 5\%, and 10\% level, respectively. } %  ...SAMPLE DESCRIPTION. MAIN OUTCOME. CLUSTERS. STARS 
+		\label{tab:main_init} 
+	\begin{threeparttable} 
+		%% PANEL A -> INITIATION
+		\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{5}{c}}
+			\multicolumn{5}{l}{\textbf{Panel A}: Initiation} \\
+			\toprule  
+				\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+				\input{Tables/tab_main_initiation}  \\
+			\bottomrule \\  \multicolumn{6}{c}{[Continued on the next page]}  \end{tabular*}
+			\end{threeparttable}   \end{center} \end{table}
+\newpage
+		\begin{table}[H] \begin{center} 
+		\begin{threeparttable} 
+		%% PANEL B -> INITIATION STRICT
+		\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{5}{c}}
+			 \multicolumn{6}{c}{[Continued from previous page]} \\ \\
+			 \multicolumn{5}{l}{\textbf{Panel B}: Initiation strict} \\
+			\toprule  
+				\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+				\input{Tables/tab_main_initiation_strict} 
+			\bottomrule \end{tabular*}
+	\end{threeparttable} \end{center}
+\end{table}
+\clearpage \newpage
+
+\begin{table}[H] \begin{center} 
+		\caption{\textbf{Initiation - Including old clients of the banker with no deals} \\ This table shows regressions of an indicator for a new bank-borrower relationships  on a dummy for personal relationship acquired, which identifies deals with the old clients of bankers that switch employers. The dependent variable in Panel A includes new bank-borrower relationship as well as clients with whom the bank had no interaction in the past 5 years. The dependent variable in Panel B does not include first-time clients. The sample is at the bank-borrower-year level and spans from 1996 to 2013. Bond ans SEO underwriting as well as M\&A advisory deals are retrieved from CapitalIQ. Syndicated loans are from Dealscan. Variables are defined as in Appendix Table \ref{tab:definitions}. t-statistics, based on robust standard errors clustered at firm and lender level, are reported in parentheses. ***, **, and * indicate that the parameter estimate is significantly different from zero at the 1\%, 5\%, and 10\% level, respectively. } %  ...SAMPLE DESCRIPTION. MAIN OUTCOME. CLUSTERS. STARS 
+		\label{tab:main_init} 
+	\begin{threeparttable} 
+		%% PANEL A -> INITIATION
+		\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{5}{c}}
+			\multicolumn{5}{l}{\textbf{Panel A}: Initiation} \\
+			\toprule  
+				\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+				\input{Tables/tab_main_initiation_nodeal}  \\
+			\bottomrule \\  \multicolumn{6}{c}{[Continued on the next page]}  \end{tabular*}
+			\end{threeparttable}   \end{center} \end{table}
+\newpage
+		\begin{table}[H] \begin{center} 
+		\begin{threeparttable} 
+		%% PANEL B -> INITIATION STRICT
+		\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{5}{c}}
+			 \multicolumn{6}{c}{[Continued from previous page]} \\ \\
+			 \multicolumn{5}{l}{\textbf{Panel B}: Initiation strict} \\
+			\toprule  
+				\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+				\input{Tables/tab_main_initiation_strict_nodeal} 
+			\bottomrule \end{tabular*}
+	\end{threeparttable} \end{center}
+\end{table}
+\clearpage \newpage
+
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Table  log deal size any
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H] \begin{center} 
+	\caption{\textbf{Total deal volume} \\ This table shows regressions of the logarithm of total deal volume on an indicator for  personal relationship acquired,  which identifies deals with the old clients of bankers that switch employers. The sample is at the bank-borrower-year level and spans from 1996 to 2013. Bond ans SEO underwriting as well as M\&A advisory deals are retrieved from CapitalIQ. Syndicated loans are from Dealscan. Variables are defined as in Appendix Table \ref{tab:definitions}. t-statistics, based on robust standard errors clustered at firm and lender level, are reported in parentheses. ***, **, and * indicate that the parameter estimate is significantly different from zero at the 1\%, 5\%, and 10\% level, respectively. } %  ...SAMPLE DESCRIPTION. MAIN OUTCOME. CLUSTERS. STARS 
+		\label{tab:main_dealsize} 
+	\begin{threeparttable} 
+				\input{Tables/tab_main_dealsize}  
+	\end{threeparttable}   \end{center} \end{table}
+\clearpage \newpage
+
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Table  log deal size by category
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H] \begin{center} 
+	\caption{\textbf{Total deal volume by category} \\ This table shows regressions of the logarithm of total deal volume by category on an indicator for personal relationship acquired, which identifies deals with the old clients of bankers that switch employers. The dependent variable in Panel A is syndicated loans volume, in Panel B bond underwriting, and in Panel C seasoned equity offerings (SEOs). The sample covers respectively all bank-borrower-year observations where there is at least one syndicated loan, bond, or SEO per bank-borrower-year. The sample spans from 1996 to 2013. Bond ans SEO underwriting as well as M\&A advisory deals are retrieved from CapitalIQ. Syndicated loans are from Dealscan. Variables are defined as in Appendix Table \ref{tab:definitions}. t-statistics, based on robust standard errors clustered at firm and lender level, are reported in parentheses. ***, **, and * indicate that the parameter estimate is significantly different from zero at the 1\%, 5\%, and 10\% level, respectively. } %  ...SAMPLE DESCRIPTION. MAIN OUTCOME. CLUSTERS. STARS 
+		\label{tab:main_dealsize_categ} 
+	\begin{threeparttable} 
+		%% PANEL A -> DEALSCAN
+		\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{5}{c}}
+			\multicolumn{5}{l}{\textbf{Panel A}: Syndicated loans} \\
+			\toprule  
+				\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+				\input{Tables/tab_main_loanonly}  \\
+			\bottomrule \\  \multicolumn{6}{c}{[Continued on the next page]}  \end{tabular*}
+			\end{threeparttable}   \end{center} \end{table}
+\newpage
+		\begin{table}[H] \begin{center} 
+		\begin{threeparttable} 
+		%% PANEL B -> CIQ BONDS
+		\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{5}{c}}
+			 \multicolumn{6}{c}{[Continued from previous page]} \\ \\
+			 \multicolumn{5}{l}{\textbf{Panel B}: Bond underwriting} \\
+			\toprule  
+				\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+				\input{Tables/tab_main_bondonly} 
+			\bottomrule \\
+			%% PANEL C -> CIQ SEO
+			\multicolumn{5}{l}{\textbf{Panel C}: SEO underwriting} \\
+			\toprule  
+				\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+				\input{Tables/tab_main_seoonly} 
+			\bottomrule \\
+			\end{tabular*}
+	\end{threeparttable} \end{center}
+\end{table}
+\clearpage \newpage
+
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Table  log deal size first-time vs. repeat business
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H] \begin{center} 
+	\caption{\textbf{Deal volume - First deal vs. Repeat deals} \\ This table shows regressions of the logarithm of total deal volume on an indicator for personal relationship acquired, which identifies deals with the old clients of bankers that switch employers. The dependent variable in the first three columns is the volume of the first deal that a banker does with one of her old clients after switching to the new bank. The dependent variable in the last three columns is the volume of deals that come from repeated interactions with old clients (excluding the first one). The sample covers respectively all bank-borrower-year observations where there is at least one syndicated loan, bond, or SEO per bank-borrower-year. The sample spans from 1996 to 2013. Bond ans SEO underwriting as well as M\&A advisory deals are retrieved from CapitalIQ. Syndicated loans are from Dealscan. Variables are defined as in Appendix Table \ref{tab:definitions}. t-statistics, based on robust standard errors clustered at firm and lender level, are reported in parentheses. ***, **, and * indicate that the parameter estimate is significantly different from zero at the 1\%, 5\%, and 10\% level, respectively. 
+	} %  ...SAMPLE DESCRIPTION. MAIN OUTCOME. CLUSTERS. STARS 
+		\label{tab:first_repeat} 
+\begin{threeparttable} 
+	%% PANEL A -> DEALSCAN
+	\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{7}{c}}
+		\toprule  \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+		\input{Tables/tab_first_repeat}  
+		\bottomrule \\ 
+	\end{tabular*}
+\end{threeparttable}   \end{center} \end{table}
+
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Table  dynamics
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

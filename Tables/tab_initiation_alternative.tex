@@ -1,0 +1,22 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{6}{c}}
+\toprule
+                &\multicolumn{3}{c}{Initiation}        &\multicolumn{3}{c}{Log Deal Volume}   \\\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+                &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+                &\multicolumn{1}{c}{All}&\multicolumn{1}{c}{Lawsuit}&\multicolumn{1}{c}{No Lawsuit}&\multicolumn{1}{c}{All}&\multicolumn{1}{c}{Lawsuit}&\multicolumn{1}{c}{No Lawsuit}\\
+\midrule
+Rel\_acq $\times$ Female&     0.10***&     0.28***&     0.08***&     0.19   &    -0.40   &     0.84*  \\
+                &   (2.95)   &   (3.39)   &   (2.91)   &   (0.44)   &  (-0.76)   &   (1.85)   \\
+ 
+Rel\_acq&     0.14***&     0.23** &     0.12***&     0.36***&     0.55*  &     0.35***\\
+                &   (3.83)   &   (2.89)   &   (3.58)   &   (3.75)   &   (2.26)   &   (3.27)   \\
+\midrule
+Observations    &  861,444   &   87,372   &  691,902   &  809,173   &   79,918   &  647,276   \\
+R-squared       &     0.42   &     0.54   &     0.43   &     0.51   &     0.61   &     0.53   \\
+\midrule Firm-Bank FE&      Yes   &      Yes   &      Yes   &      Yes   &      Yes   &      Yes   \\
+Bank-Year FE    &      Yes   &      Yes   &      Yes   &      Yes   &      Yes   &      Yes   \\
+Firm-Year FE    &      Yes   &      Yes   &      Yes   &      Yes   &      Yes   &      Yes   \\
+\bottomrule
+\end{tabular*}
+}

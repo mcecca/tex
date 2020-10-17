@@ -1,0 +1,24 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{4}{c}}
+\toprule
+                &\multicolumn{1}{c}{(1)}   &\multicolumn{1}{c}{(2)}   &\multicolumn{1}{c}{(3)}   &\multicolumn{1}{c}{(4)}   \\
+\midrule
+1(Lawsuit~gender)$\times$ 1(female)&     3.94** &     3.43*  &            &            \\
+                &   (2.07)   &   (1.69)   &            &            \\
+ 1(Lawsuit~gender)$\times$ 1(female) $\times$ 1(Tenure>5years)&            &    -0.88   &            &            \\
+                &            &  (-0.17)   &            &            \\
+ 1(Perc. female directors)$\times$ 1(female)&            &            &   -27.26*  &            \\
+                &            &            &  (-1.77)   &            \\
+ 1(No. female directors)$\times$ 1(female)&            &            &            &    -4.81*  \\
+                &            &            &            &  (-1.91)   \\
+\midrule
+Observations    &    3,332   &    3,332   &      557   &      557   \\
+R-squared       &     0.86   &     0.86   &     0.93   &     0.93   \\
+New bank FE     &      Yes   &      Yes   &      Yes   &      Yes   \\
+Previous bank FE&      Yes   &      Yes   &      Yes   &      Yes   \\
+Year FE         &      Yes   &      Yes   &      Yes   &      Yes   \\
+Additional Controls&      Yes   &      Yes   &      Yes   &      Yes   \\
+\bottomrule
+\end{tabular*}
+}

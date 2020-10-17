@@ -1,0 +1,39 @@
+
+\subsection{Initiation/Dealsize}
+\label{sec:initiation}
+
+Some additional data description (fr rest see Table \ref{app:Tables})
+\begin{itemize}
+
+	\item deals are defined as any occurrence of (syndicated) loans, SEOs, Bond offerings
+	\item initiation is defined as the first occurrence of any type of deal between a bank and a borrower (5 year rolling window to define ``first'')
+	\item  strict initiation is initiation but only for borrowers that appear at least once in the data before the first deal
+	\item personal relationship acquired is defined as: borrower $i$ took out at least one loan with bankers $b$ working for a lead bank in the past. Banker $b$ then appears on (any) loan contract for bank $c$, but excluding loans to borrower $i$ to avoid mechanical effects. 
+\end{itemize}
+
+
+%spec
+\begin{equation}
+initiation = personal_relationship_acquired \label{eq:initiation}
+\end{equation}
+
+\begin{center}
+	[Table \ref{tab:main} here]
+\end{center}
+
+
+\subsection{Discussion and alternative explanations}
+
+Potential issue:
+\begin{itemize}
+	\item Banks expand in an industry and both hire people and extend lending there
+\end{itemize}
+
+%
+%Table order:
+%\begin{enumerate}
+%	\item 
+%
+%	\item APP: 
+%
+%\end{enumerate}

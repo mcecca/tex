@@ -1,0 +1,88 @@
+
+
+\begin{center}
+	{ \Large Appendix for \\ ``\tit''}
+\end{center}
+
+\numberwithin{equation}{section}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+% One-line spacing in appendix
+\singlespacing
+
+% Separate numbering of equations
+\numberwithin{equation}{section}
+
+
+\section{Anecdotal Evidence}
+\label{app:anecdotal}
+
+\section{Data appendix}
+\label{app:variables}
+
+
+\begin{enumerate}
+	\item Data description
+	\item choice of data
+\end{enumerate}
+
+
+\section*{Appendix Tables}
+\label{app:tables}
+
+
+\begin{landscape} 
+\onehalfspacing
+
+\begin{longtable}[c]{p{.2\textwidth} p{1.1\textwidth} }
+	%Define header for the first page
+	\caption{ \textbf{Variable definitions} \label{tab:definitions} }\\
+	% \cline{1-3}
+ 	\endfirsthead
+ 
+ 	%Define header for the subsequent pages
+	 \multicolumn{2}{c}{ [Continued from previous page] }\\
+	\endhead
+ 	
+ 	%Define footer for 1st end of page
+	\midrule \\ \multicolumn{2}{c}{[Continued on the next page]}	
+	\endfoot 
+
+	%Define footer for last page
+	\bottomrule
+ 	\endlastfoot
+
+ 	%Begin with the contents Variable name & Description & Source
+ 	\multicolumn{2}{l}{\textbf{Panel A:} Bankers and deals} \\
+ 	\midrule
+ 	Initiation$_{i,j,t}$ & Indicator for the year $t$ when bank $j$ makes a deal (syndicated loan, bond underwriting, SEOs, or M\&A advisory) with firm $i$ for the first time ever or for the first time in more than five years. \\
+ 	Initiation\_strict$_{i,j,t}$ & Indicator for the year $t$ when bank $j$ makes a deal (syndicated loan, bond underwriting, SEOs, or M\&A advisory) with firm $i$ for the first time in more than five years.  \\
+ 
+ 	Rel\_acq$_{i,j,t}$ & Indicator variable for the year $t$ when a bank $j$ makes a deal with firm $i$ for the first time ever or for the first time in five years \emph{and} firm $i$ was in the clinet portfolio of a banker that switched to bank $j$ before time $t$.  \\
+	Rel\_acq$^{5yr}_{i,j,t}$ & Same as Rel\_acq$_{i,j,t}$, but takes the value of 1 also for the years $t+1$ to $t+4$. \\
+	Rel\_acq$^{abs}_{i,j,t}$ & Same as Rel\_acq$_{i,j,t}$, but is set to missing for all years after $t$. \\
+	\#Bankers switched & Numbers of bankers that switched to bank $j$ during year $t$. \\
+	Log Deal Value & Logarithm of the total value of deals (in USDmm) that bank $j$ underwrites for firm $i$ in year $t$, including syndicated loans, bonds, and SEOs.  \\
+	Log Bonds & Logarithm of the total value of bonds (in USDmm) that bank $j$ underwrites for firm $i$ in year $t$. \\
+	Log M\&As & Logarithm of the total value of M\&A transactions (in USDmm) for which bank $j$ acts as adviser for firm $i$ in year $t$. \\
+	Log SEOs & Logarithm of the total value of seasoned equity (in USDmm) that bank $j$ underwrites for firm $i$ in year $t$. \\
+	Log Syndicated loans & Logarithm of the total value of syndicated loans (in USDmm) taken out by firm $i$ in year $t$ for which bank $j$ acts as lead arranger. \\ & \\
+	\pagebreak
+
+	\multicolumn{2}{l}{\textbf{Panel B:} Bank- and firm-level variables} \\
+ 	\midrule
+ 	Log Assets & Logarithm of total assets \\
+ 	Leverage & Total liabilities over total assets \\
+ 	EBITDA & Earnings before Interest, Taxes, Depreciation, and Amortization \\
+ 	Profitability & EBITDA over total assets \\
+ 	Intangibles to assets & Intangible assets over total assets \\
+
+\end{longtable} \end{landscape}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Appendix tables
+
+
+	

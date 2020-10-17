@@ -1,0 +1,205 @@
+
+\documentclass[12pt]{article}
+
+% My standard included packages
+\usepackage{setspace}           % Allows easy changes to line spacing
+\usepackage{graphicx}           % Allows including of graphics files
+\usepackage{amsmath}
+\usepackage{amsfonts}           % Additional math capabilities
+\usepackage{marginnote}         % Used with todonotes package
+\usepackage{datetime}           % Allows formatting of date and time
+\usdate                         % Use usual LaTeX date layout
+\usepackage{enumitem}           % List formatting commands
+\setlist{noitemsep}             % Remove space between list items
+%\usepackage{subfigure}          % Create numbered and captioned subfigures
+\usepackage{rotating}           % Create landscape tables and figures
+\usepackage[dvipsnames]{xcolor} % Refer to colors by name
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=NavyBlue,citecolor=NavyBlue]{hyperref}           % URLS and hyperlinks
+%\usepackage{hyperref}           % URLS and hyperlinks
+\usepackage{float}              % Activate [H] option to place figure HERE
+%\usepackage[nofiglist,notablist]{endfloat}
+\usepackage[longnamesfirst,round]{natbib} % Bibliography formatting
+\usepackage{versionPO}          % Include text conditionally
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage[singlelinecheck=false, labelfont=bf]{caption}
+\usepackage{subcaption}
+%\usepackage{multirow,longtable,multirow} % Fancy tables
+\usepackage{threeparttable,threeparttablex,multirow,longtable,multirow} % Fancy tables
+
+\interfootnotelinepenalty=10000 %do not break footnotes
+
+
+\excludeversion{notes} % Include notes?
+\excludeversion{comment}
+\includeversion{links}          % Turn hyperlinks on?
+\excludeversion{submit}		% Format for conference submission?
+\excludeversion{toc}		% Include table of contents?
+\excludeversion{longabs}	
+
+% Turn off hyperlinking if links is excluded
+\iflinks{}{\hypersetup{draft=true}}
+
+% Notes options
+\ifnotes{%
+	\usepackage[margin=1in,paperwidth=10in,right=2.5in]{geometry}%
+	\usepackage[textwidth=1.4in,shadow,colorinlistoftodos]{todonotes}%
+}{%
+\usepackage[margin=1in]{geometry}%
+\usepackage[disable]{todonotes}%
+}
+
+
+%added by Marc
+\usepackage[T1]{fontenc} %to print European characters
+\usepackage[utf8]{inputenc} %to type European characters
+\usepackage{lmodern} %makes fonts nicer when compiled on Windows
+\usepackage{adjustbox} %enables the \resizebox{...} command
+\usepackage{afterpage} %to leave a blank page
+\usepackage{tabularx}
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+
+% Allow todonotes inside footnotes without blowing up LaTeX
+% Next command works but now notes can overlap. Instead, we'll define
+% a special footnote note command that performs this redefinition.
+%\renewcommand{\marginpar}{\marginnote}%
+
+% Save original definition of \marginpar
+\let\oldmarginpar\marginpar
+
+% Workaround for todonotes problem with natbib (To Do list title comes out wrong)
+\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes
+
+% Define note commands
+\newcommand{\smalltodo}[2][] {\todo[caption={#2}, size=\scriptsize, fancyline, #1] {\begin{spacing}{.5}#2\end{spacing}}}
+\newcommand{\chris}[2][]{\smalltodo[nolist,color=green!30,#1]{{\bf CH:} #2}}
+\newcommand{\mf}[2][]{\smalltodo[color=blue!30,#1]{{\bf MF:} #2}}
+\newcommand{\chnolist}[2][]{\smalltodo[nolist,color=green!30,#1]{{\bf CH:} #2}}
+\newcommand{\chfn}[2][]{%  To be used in footnotes (and in floats)
+	\renewcommand{\marginpar}{\marginnote}%
+	\smalltodo[color=green!30,#1]{{\bf CH:} #2}%
+	\renewcommand{\marginpar}{\oldmarginpar}}
+\newcommand{\textnote}[1]{\ifnotes{{\colorbox{yellow}{{\color{red}#1}}}}{}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\sym}[1]{\rlap{#1}} %command for stars in tables
+
+
+% Packages included specifically for this document.
+\usepackage{texintro}           % Document-specific definitions
+\usepackage{tocvsec2}           % More flexible formatting of table of contents
+\usepackage{bibentry}           % Print full citation in text
+%the next three lines are a workaround to make \nobibliography work with the chicago bibliography style. Added by Marc on 12/06/2017.
+ \makeatletter 
+ \renewcommand\BR@b@bibitem[2][]{\BR@bibitem[#1]{#2}\BR@c@bibitem{#2}}           
+ \makeatother
+ 
+\nobibliography*                % Allow use of \bibentry command
+\usepackage{tikz}             % Already included by todonotes
+\usepackage{lscape} %change parts to landscape view
+\usetikzlibrary{matrix}
+%\usepackage[retainorgcmds]{IEEEtrantools}  % Equation formatting. Option needed to
+% allow enumitem to work.
+
+\makeatletter\let\chapter\@undefined\makeatother % Undefine \chapter for todonotes.
+
+% Number paragraphs and subparagraphs and include them in TOC
+%\setcounter{tocdepth}{2}
+\begin{document}
+
+
+\newcommand{\tit}{How do borrowers find their banks? \\ The value of individuals in bank relationship formation}
+
+
+%\newcommand{\ack}{We thank People for helpful discussions and seminar and conference participants at places for helpful comments and suggestions.  \textnote{\textbf{INCLUDES NOTES.}}} 
+	
+\newcommand{\abs}{%136 words
+	\noindent We investigate the role of individual commercial bankers in facilitating bank-borrower relationships. We find that after a relationship banker switches to a new bank, her former borrowers are 4 times as likely to initatie a new lending relationship with that lender, compared to the unconditional mean. These newly formed relationships extend beyond lending and include cross selling of bonds and other financial services unrelated to lending itself. The newly acquired borrowers brings an increase in deal volume of 5\%, or 1.6 USD million for the average deal, across the various product groups. We plan to investigate (a) whether the likelyhood of a banker getting poached increases with the value of their client portfolio, (b) which clients the banker brings over to her new employer, and (c) whether the borrowing terms improve or decline after the switch. 
+	\medskip
+
+\noindent \textbf{JEL Classifications:} D22, G21, G32. \medskip
+
+}
+\newcommand{\abslong}{
+}
+\title{\tit\ifsubmit{}{}
+
+\ifsubmit{}{\author{\large 	Marco Ceccarelli\thanks{University of Zurich and Swiss Finance Institute, Plattenstrasse 14, Zurich 8032, Switzerland; \href{mailto:marco.ceccarelli@bf.uzh.ch}{marco.ceccarelli@bf.uzh.ch}.} \ \ \ \
+		Christoph Herpfer\thanks{Emory University, Goizueta Business School, 1300 Clifton Road, 30322 Atlanta, Georgia; \href{mailto:christoph.herpfer@emory.edu}{christoph.herpfer@emory.edu}.} \ \ \ \
+		Steven Ongena\thanks{University of Zurich, Swiss Finance Institute, KU Leuven, and CEPR, Plattenstrasse 14, Zurich 8032, Switzerland; \href{mailto:steven.ongena@uzh.ch}{steven.ongena@uzh.ch}. %Corresponding author.
+		}}}
+
+\date{\ifsubmit{}{\today}} }
+
+%%%%%%%%%%%%%%%%%%%
+%Comments and to dos
+
+
+
+%List of people to send draft to
+
+%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+  \iflongabs{\abslong}{\abs}
+\end{abstract}
+\cleardoublepage
+
+% Select spacing
+\doublespacing
+\setcounter{page}{1}
+
+%% BEGIN EXTENDED ABSTRACT
+
+Lending relationships are key drivers for both the availability and pricing of credit \citep{Bharath2007, Ioannidou2010}. While lending relationships generally benefit borrowers, they also expose them to adverse shocks on the lender level, providing a transmission mechanism between the financial and real sector \citep{Ivashina2010, chodorow2014}. 
+
+While it is well understood that lending relationships have a large impact on lending, how these relationships are formed, and how banks and borrowers actually match up is a much less studied topic. In this paper, we take a step towards answering this important question by studying the role of commercial bankers in matching banks and borrowers.\footnote{There is a small but growing literature that examines  the bankers directly, e.g., \cite{Gao2018} looks at the career impact of mediating a loan that later defaulted and \cite{Herpfer2017a} examines the impact of relationships on loan terms.}
+
+%Summary
+In Table~\ref{tab:main_init}, we find that personal relationships between bankers and firms are a key factor in matching lenders to borrowers. After a commercial banker switches from one bank to another, the likelihood of a relationship initiation by this new employing lender to the firmer borrower increases by a factor of almost four compared to the unconditional sample average of 5\%. 
+
+These results hold under tight controls, including borrower-bank fixed effects, meaning that our results are driven by with-borrower-bank changes in having a personal relationship through a banker. Bank-year and borrower-year fixed effects control for lender and borrower time-specific trends in the initiation of new relationships. Thus, we can rule out a wide range of alternative explanations for our findings, such as a lender expanding and both hiring additional employees and initiating new lending relationships. 
+
+Importantly, these initiations go beyond straight loan contracts. We find that after a banker with a personal tie to a borrower moves, the former borrower also issues new bonds and seasoned equity offerings with the new lender. Table~\ref{tab:main_dealsize} shows that, after scooping a banker, the deal volume at the given bank increases on average by 5\%.
+
+%Future tests
+Taken together, these results stress the importance of bankers in the formation of relationships between banks and their clients. We are currently undertaking analyses that seek to understand if the bankers that are poached are also those with the most attractive portfolio of relationships. Moreover, we plan to ask whether the clients that switch are those that rely most on the relationship with the banker, e.g., because they are opaque or would otherwise face difficulties in raising new loans. Finally, we take the perspective of the firms and ask if the borrowing terms improve or decline after a switch.
+
+\singlespacing
+\begin{table}[H] \begin{center} 
+		\caption{\textbf{Initiation} \\ This table shows regressions of an indicator for a new bank-borrower relationships  on a dummy for personal relationship acquired, which identifies deals with the old clients of bankers that switch employers. The dependent variable identifies new bank-borrower relationship as well as clients with whom the bank had no interaction in the past 5 years. The sample is at the bank-borrower-year level and spans from 1996 to 2013. Deals include bond and SEO underwriting as well as M\&A advisory deals as well as syndicated loans retrieved from Dealscan. The former deals are retrieved from CapitalIQ. t-statistics, based on robust standard errors clustered at firm and lender level, are reported in parentheses. ***, **, and * indicate that the parameter estimate is significantly different from zero at the 1\%, 5\%, and 10\% level, respectively. } %  ...SAMPLE DESCRIPTION. MAIN OUTCOME. CLUSTERS. STARS 
+		\label{tab:main_init} 
+	\begin{threeparttable} 
+		%% PANEL A -> INITIATION
+		\begin{tabular*}{.8\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{4}{c}}
+			\toprule  
+				\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+				\input{tab_main_initiation}  
+			\bottomrule \end{tabular*}
+	\end{threeparttable}   \end{center} 
+\end{table}
+
+\begin{table}[H] \begin{center} 
+	\caption{\textbf{Total deal volume} \\ This table shows regressions of the logarithm of total deal volume on an indicator for  personal relationship acquired,  which identifies deals with the old clients of bankers that switch employers. The dependent variable identifies new bank-borrower relationship as well as clients with whom the bank had no interaction in the past 5 years. The sample is the same as in Table~\ref{tab:main_init}. t-statistics, based on robust standard errors clustered at firm and lender level, are reported in parentheses. ***, **, and * indicate that the parameter estimate is significantly different from zero at the 1\%, 5\%, and 10\% level, respectively. } %  ...SAMPLE DESCRIPTION. MAIN OUTCOME. CLUSTERS. STARS 
+		\label{tab:main_dealsize} 
+	\begin{threeparttable} 
+				\input{tab_main_dealsize}  
+	\end{threeparttable}   \end{center} \end{table}
+
+\singlespacing
+\label{sec:Lit}
+\bibliographystyle{jfe}
+\bibliography{./BIBTEX_Library}{}
+
+\clearpage
+\end{document}

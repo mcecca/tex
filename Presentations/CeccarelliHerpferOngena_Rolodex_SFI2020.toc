@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Big picture}{2}{0}{1}
+\beamer@sectionintoc {2}{Data \& methodology}{20}{0}{2}
+\beamer@sectionintoc {3}{Main Findings}{26}{0}{3}
+\beamer@sectionintoc {4}{ Finding II - Initiation and deal volume}{31}{0}{4}
+\beamer@sectionintoc {5}{Finding III - Labor market frictions spillover}{44}{0}{5}

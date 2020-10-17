@@ -1,0 +1,43 @@
+1. Keep only 1 observation after switch at new employee 
+	-> OK, tried it out with specification dropping all observations post switch and findings go through
+	-> right now the banker hired indicator is defined using changes in banks, i.e., it takes the value of 100 for the first time a banker appears at a new bank. This means it CAN take the value of 100 multiple times for the same banker. 
+
+2. Comment pg 7 relating #obs with tenure
+	- I don't think that it's a correct inference to do average tenure X #bankers = #obs 
+	- Ex: banker A - tenure = [1,2,3,4]
+				B - tenure = [1,2,3]
+				C - tenure = [1,2]
+				-> average tenure = (10+6+3)/9=2.1
+				-> #obs = 9 != 3*2.1
+				-> #bankers = 3
+	- Probably better measure for back-of-the-envelope calc is the median, e.g., in our case median_tenure = 3 * 19,034 bankers = 57,102 (#observations = 58,572 - 1,047 switches = 57,525)
+
+3. Pg. 8 - Drop descriptions of #deals
+	- OK to drop, just fyi we use the #deals in Panel B, Tab 3
+
+4. Pg 13 - Check the result (split between #Clients that are small vs large) with (a) indicator at 50% threshold AND (b) continuous variable of average client size (log of) in the bankers' portfolio. [for (b), probably best to construct a running average of the portfolio size]
+
+5. Pg. 15 - show parallel trends for initiation before acquiring a relationship. 
+	- we could show the average numbers of initiations per bank-year by rel_acq status 
+	- we could collapse by yrs-before/after rel_acq and sum the #initiations at a bank [not good since you would only keep firms that eventually acquire a relationship]
+
+6. Pg. 17 - Talk about findings always in %
+	- agree, will change accordingly. The indicators are 100 everywhere 
+
+7. Pg. 19 - Why drop firms for which there are never deals? 
+	- short answer: we drop the coz otherwise the results are not significant anymore 
+	- long answer: we have bank-firm pairs for which deals occur eventually - regardless of there is a relationship acquired or not. We drop bank-firms for which a relationship is being acquired but that never close a deal. 
+	- The economic question that we ask is - conditional on closing a deal - is the deal volume larger with clients with whom you have a personal relationship 
+	- Reason for this is that we fill the sample with gaps, i.e., observations where the deal volume is 0, for all years => very hard to find something in the first place. If we keep all the firms that are never brought over, we actually get NEGATIVE coefficients on relationship acquired. That's intuitive since you wouldn't expect a banker to bring over ALL its clients to the new bank. 
+
+	-> btw, what if we would construct a running sum of the deal volume, i.e., "total deals closed with a given client". In this way we stop over-penalizing stuff and the results might go through even if we keep all clients (also those for which rel acq=1 and deal vol=0)
+
+	-> Regarding how we present the results, should we talk about economic significance for the first column (least stringent FEs?)
+
+8. pg. 23 - Rel_acq_abs and repeat deals -> you're right, that's a bit silly, but the way that this is constructed is to "drop" the first deal and consider only the further deals. Hence, rel_acq_abs will take value of 1 for the 2nd deal and missing thereafter. I agree that that's a bad definition though. What do you think that we should do here? Drop the current analysis and do a pre-post with 1st and 2nd+ separately?
+	-> DROP COEFFICIENT FROM TABLE 
+
+9. pg 24-25 - IV issues:
+	-> interpretation of results: Everything is summed up at the bank-year level, hence you have (partly) large numbers of relationship acquired and initiations that happen within a year, especially if the bank has hired many bankers
+
+10. pg 25 - Definition of discrimination - Indicator for ALL banks that are involved in a scandal, regardless of whether a banker switches or not. Hence, you can have discrimination=1 when a banker is still working there

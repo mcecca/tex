@@ -1,0 +1,39 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular*}{\hsize}{@{\hskip\tabcolsep\extracolsep\fill}l*{5}{c}}
+\toprule
+                &\multicolumn{2}{c}{Board}&\multicolumn{2}{c}{Lawsuits}&\multicolumn{1}{c}{Placebo}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-6}
+                &\multicolumn{1}{c}{(1)}   &\multicolumn{1}{c}{(2)}   &\multicolumn{1}{c}{(3)}   &\multicolumn{1}{c}{(4)}   &\multicolumn{1}{c}{(5)}   \\
+\midrule
+No Female director\(_{t-1}\) $\times$ Female &    3.54** &    2.82*  &            &            &            \\
+                &  (-2.38)   &  (-1.98)   &            &            &            \\
+ 
+
+ 
+ 
+No Female director\(_{t-1}\)&    0.14   &    0.71   &            &            &            \\
+                &  (-0.16)   &  (-0.75)   &            &            &            \\
+ 
+Gender discrimination\(_{t-1}\) $\times$ Female&            &            &     4.49** &     4.54** &            \\
+                &            &            &   (2.26)   &   (2.00)   &            \\
+ 
+Gender discrimination\(_{t-1}\)&            &            &   -16.80   &   -17.17   &            \\
+                &            &            &  (-1.12)   &  (-1.16)   &            \\
+ 
+Other lawsuits\(_{t-1}\) $\times$ Female&            &            &            &            &    -3.19   \\
+                &            &            &            &            &  (-1.21)   \\
+ 
+Other lawsuits\(_{t-1}\)&            &            &            &            &   -15.39   \\
+                &            &            &            &            &  (-0.97)   \\
+ 
+Female        &     4.20*  &     4.25** &     0.62   &     0.73   &     2.15   \\
+                &   (1.83)   &   (2.45)   &   (0.40)   &   (0.46)   &   (1.52)   \\
+\midrule
+Observations    &      552   &      552   &    3,308   &    3,308   &    3,308   \\
+R-squared       &     0.94   &     0.94   &     0.86   &     0.86   &     0.86   \\
+\midrule Prev. Bank FE   &      Yes   &      Yes   &      Yes   &      Yes   &      Yes   \\
+Bank and Year FE&      Yes   &      Yes   &      Yes   &      Yes   &      Yes   \\
+Banker controls &       No   &      Yes   &       No   &      Yes   &       No   \\
+\bottomrule
+\end{tabular*}
+}
